@@ -15,3 +15,13 @@ code {
 .navbar{
   background-color: #460C68;
 }
+
+.img{
+  height: 240px;
+  object-fit: cover;
+}
+
+.card{
+  height: 100%;
+}
+
