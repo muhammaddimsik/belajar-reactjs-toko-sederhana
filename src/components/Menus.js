@@ -3,10 +3,14 @@ import React from "react";
 import { Col, Card } from "react-bootstrap";
 import { indonesianCurrencyFormat } from "../unitls/utils";
 
-const Menus = ({ menu }) => {
+const Menus = ({ menu, masukKeranjang }) => {
   return (
     <Col md={4} xs={6} className="mb-4 kotak">
-      <Card>
+      <Card
+        className="shadow"
+        onClick={() => masukKeranjang(menu)}
+        style={{ cursor: "pointer" }}
+      >
         <Card.Img
           className="img"
           variant="top"

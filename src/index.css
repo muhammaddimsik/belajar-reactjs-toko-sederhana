@@ -16,6 +16,23 @@ code {
   background-color: #460C68;
 }
 
+.category-active{
+  background-color: #460C68;
+  color: white;
+}
+
+li{
+  text-align: left;
+}
+
+
+svg{
+  margin: 0 20px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+}
+
 .img{
   height: 240px;
   object-fit: cover;
