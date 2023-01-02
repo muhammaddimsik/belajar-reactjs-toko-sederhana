@@ -14,20 +14,20 @@ export default class Result extends Component {
             {keranjangs.map((menuKeranjang) => (
               <ListGroup.Item>
                 <Row>
-                  <Col className="border">
+                  <Col>
                     <h4>
                       <Badge pill variant="success">
                         {menuKeranjang.jumlah}
                       </Badge>
                     </h4>
                   </Col>
-                  <Col className="border text-start">
+                  <Col className=" text-start">
                     <h5>{menuKeranjang.product.nama}</h5>
                     <p>
                       {indonesianCurrencyFormat(menuKeranjang.product.harga)}
                     </p>
                   </Col>
-                  <Col className="border">
+                  <Col>
                     <strong className="float-end">
                       <p>
                         {indonesianCurrencyFormat(menuKeranjang.total_harga)}

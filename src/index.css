@@ -42,3 +42,8 @@ svg{
   height: 100%;
 }
 
+.btn-primary{
+  background-color: #460C68;
+  border: none;
+}
+
