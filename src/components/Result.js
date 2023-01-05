@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Badge, Row, Col, ListGroup } from "react-bootstrap";
 import { indonesianCurrencyFormat } from "../unitls/utils";
+import TotalBayar from "./TotalBayar";
 
 export default class Result extends Component {
   render() {
@@ -39,6 +40,7 @@ export default class Result extends Component {
             ))}
           </ListGroup>
         )}
+        <TotalBayar keranjangs={keranjangs} />
       </Col>
     );
   }
