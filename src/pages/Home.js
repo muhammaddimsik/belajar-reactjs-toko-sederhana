@@ -144,7 +144,7 @@ export default class Home extends Component {
               ))}
           </Row>
         </Col>
-        <Result keranjangs={keranjangs} />
+        <Result keranjangs={keranjangs} {...this.props} />
       </Row>
     );
   }
