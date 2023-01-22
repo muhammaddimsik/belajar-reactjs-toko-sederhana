@@ -14,6 +14,8 @@ const ModalKeranjang = ({
   kurang,
   changeHandler,
   handleSubmit,
+  totalHarga,
+  hapusPesanan,
 }) => {
   if (keranjangDetail) {
     return (
@@ -31,9 +33,7 @@ const ModalKeranjang = ({
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Total Harga:</Form.Label>
               <p>
-                <strong>
-                  {indonesianCurrencyFormat(keranjangDetail.total_harga)}
-                </strong>
+                <strong>{indonesianCurrencyFormat(totalHarga)}</strong>
               </p>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -42,19 +42,19 @@ const ModalKeranjang = ({
               <Button
                 variant="primary"
                 size="sm"
-                className="mr-2"
-                onClick={() => tambah()}
+                className="ml-2"
+                onClick={() => kurang()}
               >
-                <FontAwesomeIcon icon={faPlus} className="m-0 p-0" />
+                <FontAwesomeIcon icon={faMinus} className="m-0 p-0" />
               </Button>
               <strong className="mx-2">{jumlah}</strong>
               <Button
                 variant="primary"
                 size="sm"
-                className="ml-2"
-                onClick={() => kurang()}
+                className="mr-2"
+                onClick={() => tambah()}
               >
-                <FontAwesomeIcon icon={faMinus} className="m-0 p-0" />
+                <FontAwesomeIcon icon={faPlus} className="m-0 p-0" />
               </Button>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -74,7 +74,10 @@ const ModalKeranjang = ({
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger">
+          <Button
+            variant="danger"
+            onClick={() => hapusPesanan(keranjangDetail.id)}
+          >
             <FontAwesomeIcon icon={faTrash} className="m-0" /> Hapus Pesanan
           </Button>
         </Modal.Footer>

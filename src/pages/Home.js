@@ -27,15 +27,7 @@ export default class Home extends Component {
         console.log(error);
       });
 
-    axios
-      .get(API_URL + "keranjangs")
-      .then((res) => {
-        const keranjangs = res.data;
-        this.setState({ keranjangs });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.getListKeranjang();
   }
 
   changeCategory = (value) => {
@@ -55,19 +47,31 @@ export default class Home extends Component {
       });
   };
 
-  componentDidUpdate(prevState) {
-    if (this.state.keranjangs !== prevState.keranjangs) {
-      axios
-        .get(API_URL + "keranjangs")
-        .then((res) => {
-          const keranjangs = res.data;
-          this.setState({ keranjangs });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }
+  // componentDidUpdate(prevState) {
+  //   if (this.state.keranjangs !== prevState.keranjangs) {
+  //     axios
+  //       .get(API_URL + "keranjangs")
+  //       .then((res) => {
+  //         const keranjangs = res.data;
+  //         this.setState({ keranjangs });
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
+  // }
+
+  getListKeranjang = () => {
+    axios
+      .get(API_URL + "keranjangs")
+      .then((res) => {
+        const keranjangs = res.data;
+        this.setState({ keranjangs });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   masukKeranjang = (value) => {
     axios
@@ -83,6 +87,7 @@ export default class Home extends Component {
           axios
             .post(API_URL + "keranjangs", keranjang)
             .then((res) => {
+              this.getListKeranjang();
               swal({
                 title: "Sukses",
                 text: "Sukses Masuk Keranjang " + keranjang.product.nama,
@@ -144,7 +149,11 @@ export default class Home extends Component {
               ))}
           </Row>
         </Col>
-        <Result keranjangs={keranjangs} {...this.props} />
+        <Result
+          keranjangs={keranjangs}
+          {...this.props}
+          getListKeranjang={this.getListKeranjang}
+        />
       </Row>
     );
   }
